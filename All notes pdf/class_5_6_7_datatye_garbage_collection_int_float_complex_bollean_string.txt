@@ -1,0 +1,266 @@
+                                        Data Types
+                                         ----------
+
+
+
+Data Type represent the type of data present inside a variable.
+
+In Python we are not required to specify the type explicitly. Based on value provided, the type will be assigned automatically. hence python is dynamically typed laguage.
+
+
+In Python there are 14 types of data available.
+
+1.Integer:- int()
+2.Float :- float()
+3.Complaex:- complex()
+4.Boolean :- bool()
+5.String :- str() ------------------------ imp
+6.List :- list()  -------------------------imp
+7.Tuple :- tuple()
+8.Set :- set()
+9.Frozenset :- frozenset()
+10.Bytes :- bytes()
+11.Bytearray :- bytearray()
+12.Range :- range()
+13.Dictionary :- dict() -------------------imp
+14.None :- None
+
+Ex:-
+
+type():- In type() we know that, which type of data is available.
+>>> a = 10
+>>> type(a)
+<class 'int'>
+>>> 
+
+
+Behaveiour of a variable in python:-
+-----------------------------------
+
+Garbage Collection:-
+------------------
+In Old lanuages like C++,Java programmer is responsible for unnessary object destruction. Usally programmer taking very much time while destructing object and mine while it's creating issues, If any neglectance , total memory can be filled with useless object which creates meomory problems.
+
+In python, We have some assitance which is always running in the backgound to destroy useless object. Because this assitance the chance of falling python program with memory problems is very less. This assiatant is nothing but Garbage Collector.
+
+It's always delets old same variable objects,Hence the main object of Garbage collector is to destroy useless objects.
+
+
+>>> a = 10
+>>> id(a)
+2525132843600
+>>> 
+>>> b = 10
+>>> id(b)
+2525132843600
+>>> 
+>>> id(10)
+2525132843600
+>>> 
+>>> a = 20
+>>> id(a)
+2525132843920
+>>> 
+
+
+1.Integer(int()):-
+
+We can use int data type to represent whole number(It's both positive and Negetive but not accept decimal values)
+
+Ex:-
+
+>>> a = -10
+>>> type(a)
+<class 'int'>
+>>> 
+>>> b = 10
+>>> type(b)
+<class 'int'>
+>>> 
+
+
+
+Base Conveersion(Converting:-)
+-----------------------------
+
+
+1.Decimal(float):- (Base-10)
+
+We don't need decimal conversion, float data type is available for convert int to decimal.
+
+
+
+2.Binary:- (Base-2)
+---------------
+The allowed digit are 0 and 1
+we can use bin() functiom for converting int to binary
+The prefixed use with '0b'
+>>> a = 10
+>>> b = bin(a)
+>>> b
+'0b1010'
+>>> type(b)
+<class 'str'>
+
+
+
+
+3.Octal:- (Base-8)
+------------------
+The allowed digit are 0 to 7
+
+we can use oct() functiom for converting int to octal
+The prefixed use with '0o'
+
+>>> a = 100
+>>> b = oct(a)
+>>> b
+'0o144'
+
+
+
+
+
+4.Hexa Decimal:-(Base-16)
+------------------------
+The allowed digit are 0 to 9 and a to f
+
+we can use hex() functiom for converting int to hexal
+The prefixed use with '0x'
+
+>>> a = 1000
+>>> b = hex(a)
+>>> b
+'0x3e8'
+
+
+
+
+
+
+
+Float(float()):-
+---------------
+
+We can use float data type represent the decimal values.
+
+>>> a = 90.0
+>>> type(a)
+<class 'float'>
+>>> 
+>>> b = -89.67
+>>> type(b)
+<class 'float'>
+>>> 
+>>> c = 67978678.678876
+>>> type(c)
+<class 'float'>
+>>> 
+>>> 
+>>> d = -9089897.678
+>>> type(d)
+<class 'float'>
+
+
+
+Complex (complex):-
+-----------------
+
+A complex number is form of Real Part with Imaginary Part.
+Imaginary always taks with j.
+
+j = root of -1
+
+Real add with and imag add in imag
+
+>>> a = 2+9j
+>>> b = 7+14j
+>>> a+b
+(9+23j)
+>>> a-b
+(-5-5j)
+>>> 
+
+
+Boolean:-(bool)
+-------
+Boolean values contains two keyword True and False.
+
+Use Area:-
+
+1. When we compare two things in python , python return boolean values(True and False)
+
+2.Anything is exit in container is return True, if it's empty return False
+
+3.If a element present in a container it's True neither False.
+
+>>> li = [89,67,23]
+>>> 67 in li
+True
+>>> 789 in li
+False
+>>> 
+
+
+
+
+Python Taking True as 1 and False as 0.
+
+>>> 
+>>> True+True
+2
+>>> True+False
+1
+>>> False+False
+0
+>>> 
+
+
+String:- (str)
+-------------
+
+A String is a sequence of charcters ennclosed within single quote and double quote.
+
+>>> a = 'DFSFGDGHVJHfjhfjksdhvjkhdfjkvhdfj 233445 #$%$%^&^%&*^&*>:"{":">:"'
+>>> type(a)
+<class 'str'>
+>>> b = "DFSFGDGHVJHfjhfjksdhvjkhdfjkvhdfj 233445 #$%$%^&^%&*^&*>::>"
+>>> type(b)
+<class 'str'>
+>>> c = ''
+>>> d = "" 
+>>> type(c)
+<class 'str'>
+>>> type(d)
+<class 'str'>
+
+Triple Quote
+------------
+1. 
+
+Doc string:- Document of string
+
+we are usinh doc string in a class or function for provding the basic information about this.
+
+func_name:-
+    ''' This function is used for banking payment getway '''
+
+
+2.
+
+Multiline Comment :- we are using Triple quote for multiline comment
+
+Ex:-
+'''for country in countries:
+    if country.text == "India":
+        country.click()
+        break
+
+time.sleep(10)'''
+
+
+
+single line comment :- In  python we are using # symbol for single line comment
+
+>>> # Data = 90
+

@@ -1,0 +1,204 @@
+onstructor Concept:
+--------------------
+☕ Constructor is a special method in python.
+☕ The name of the constructor should be __init__(self)
+☕ Constructor will be executed automatically at the time of object creation.
+☕ The main purpose of constructor is to declare and initialize instance variables.
+☕ Per object constructor will be exeucted only once.
+☕ Constructor can take atleast one argument(atleast self)
+☕ Constructor is optional and if we are not providing any constructor then python will provide default constructor.
+
+
+Example:
+1) def __init__(self,name,rollno,marks): 
+2) 		self.name=name 
+3) 		self.rollno=rollno 
+4) 		self.marks=marks 
+Program to demonistrate constructor will execute only once per object:
+1) class Test: 
+2) 
+3) def __init__(self): 
+4) 		print("Constructor exeuction...") 
+5) 
+ 
+
+6) def m1(self): 
+7) 		print("Method execution...") 
+8) 
+9) t1=Test() 
+10) t2=Test() 
+11) t3=Test() 
+12) t1.m1() 
+
+
+Output
+Constructor exeuction...
+Constructor exeuction...
+Constructor exeuction...
+Method execution...
+Program:
+1) class Student: 
+2) 
+3) ''''' This is student class with required data''' 
+4) def __init__(self,x,y,z): 
+5) self.name=x 
+6) self.rollno=y 
+7) self.marks=z 
+8) 
+9) def display(self): 
+10) 	print("Student Name:{}\nRollno:{} \nMarks:{}".format(self.name,self.rollno,self.marks)
+) 
+11) 
+12) s1=Student("Krishna",101,80) 
+13) s1.display() 
+14) s2=Student("Shiva",102,100) 
+15) s2.display() 
+Output
+Student Name:Krishna
+Rollno:101
+Marks:80
+Student Name:Shiva
+Rollno:102
+Marks:100
+ 
+
+Differences between Methods and Constructors:
+Method Constructor
+
+1. Name of method can be any name 
+1. Constructor name should be always __init__
+
+2. Method will be executed if we call that 
+method
+2. Constructor will be executed automatically at 
+the time of object creation.
+
+
+3. Per object, method can be called any number 
+of times.
+3. Per object, Constructor will be executed only 
+once
+
+
+4. Inside method we can write business logic 
+4. Inside Constructor we have to declare and initialize instance variables
+
+
+
+Types of Variables:
+-------------------
+
+Inside Python class 3 types of variables are allowed.
+1. Instance Variables (Object Level Variables)
+2. Static Variables (Class Level Variables)
+3. Local variables (Method Level Variables)
+
+
+
+1. Instance Variables:
+-----------------------
+If the value of a variable is varied from object to object, then such type of variables are called 
+instance variables.
+For every object a separate copy of instance variables will be created.
+
+Where we can declare Instance variables:
+
+1. Inside Constructor by using self variable
+2. Inside Instance Method by using self variable
+3. Outside of the class by using object reference variable
+
+
+1. Inside Constructor by using self variable:
+----------------------------------------------
+We can declare instance variables inside a constructor by using self keyword. Once we creates 
+object, automatically these variables will be added to the object.
+Example:
+1) class Employee: 
+2) 
+3) def __init__(self): 
+4) 		self.eno=100 
+5) 		self.ename='Krishna' 
+6) 		self.esal=10000 
+7) 
+8) e=Employee() 
+ 
+9) print(e.__dict__) 
+Output: {'eno': 100, 'ename': 'Krishna', 'esal': 10000}
+
+
+2. Inside Instance Method by using self variable:
+--------------------------------------------------
+We can also declare instance variables inside instance method by using self variable. If any 
+instance variable declared inside instance method, that instance variable will be added once we 
+call taht method.
+ 
+Example:
+1) class Test: 
+2) 
+3) def __init__(self): 
+4) 		self.a=10 
+5) 		self.b=20 
+6) 
+7) def m1(self): 
+8) 		self.c=30 
+9) 
+10) t=Test() 
+11) t.m1() 
+12) print(t.__dict__) 
+Output
+{'a': 10, 'b': 20, 'c': 30}
+3. Outside of the class by using object reference variable:
+We can also add instance variables outside of a class to a particular object.
+1) class Test: 
+2) 
+3) def __init__(self): 
+4) self.a=10 
+5) self.b=20 
+6) 
+7) def m1(self): 
+8) self.c=30 
+9) 
+10) t=Test() 
+11) t.m1() 
+12) t.d=40 
+13) print(t.__dict__) 
+Output {'a': 10, 'b': 20, 'c': 30, 'd': 40
+
+
+3. Outside of the class by using object reference variable:
+-----------------------------------------------------------
+
+
+We can also add instance variables outside of a class to a particular object.
+1) class Test: 
+2) 
+3) def __init__(self): 
+4) 		self.a=10 
+5) 		self.b=20 
+6) 
+7) def m1(self): 
+8) 		self.c=30 
+9) 
+10) t=Test() 
+11) t.m1() 
+12) t.d=40 
+13) print(t.__dict__) 
+Output {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+ 
+
+
+class Employee:
+
+    def __init__(self,eno,ename,eage):
+        self.eno = eno
+        self.name = ename
+        self.age = eage
+
+    def talk(self,dept):
+        self.dept = dept
+
+obj = Employee('101','krishna',25)
+obj.talk('molding')
+obj.sector = 'Cross-A'
+obj.shift = 'Night shift'
+print(obj.__dict__)

@@ -1,0 +1,106 @@
+Inner classes:
+Sometimes we can declare a class inside another class,such type of classes are called inner classes.
+Without existing one type of object if there is no chance of existing another type of object,then we 
+should go for inner classes.
+Example: Without existing Car object there is no chance of existing Engine object. Hence Engine 
+class should be part of Car class.
+class Car:
+ .....
+ class Engine:
+ ......
+Example: Without existing university object there is no chance of existing Department object
+class University:
+ .....
+ class Department:
+ ......
+eg3:
+Without existing Human there is no chance of existin Head. Hence Head should be part of Human.
+class Human:
+ class Head:
+Note: Without existing outer class object there is no chance of existing inner class object. Hence 
+inner class object is always associated with outer class object.
+Demo Program-1:
+1) class Outer: 
+2) def __init__(self): 
+3) print("outer class object creation") 
+4) class Inner: 
+5) def __init__(self): 
+6) print("inner class object creation") 
+7) def m1(self): 
+8) print("inner class method") 
+9) o=Outer() 
+10) i=o.Inner() 
+11) i.m1() 
+
+
+
+class JeeMain:
+
+    def __init__(self,math,phy,chem):
+        self.math = math
+        self.phy = phy
+        self.chem = chem
+
+    def jee_main_clear(self):
+        result_of_jee_main = self.math+self.phy+self.chem
+        percentage_of_jee_main = result_of_jee_main//3
+        print(percentage_of_jee_main,'%')
+
+        if percentage_of_jee_main>=60:
+            print('Jee main clear')
+            class JeeAdv:
+                def __init__(self, written, viva, percentage_of_jee_main):
+                    self.written = written
+                    self.viva = viva
+                    self.percentage_of_jee_main = percentage_of_jee_main
+
+                def jee_adv_clear(self):
+                    result_of_jee_adv = self.written + self.viva + self.percentage_of_jee_main
+                    percentage_of_jee_adv = result_of_jee_adv //3
+                    print(percentage_of_jee_adv,'%')
+
+                    if percentage_of_jee_adv >= 60:
+                        print('Jee Advance Clear')
+                    else:
+                        print('Jee Adv Fail')
+
+            written = int(input('Enter yout writter marks out of 100:-'))
+            viva = int(input('Enter yout viva marks out of 100:-'))
+            obj_1 = JeeAdv(written,viva,percentage_of_jee_main)
+            obj_1.jee_adv_clear()
+        else:
+            print('Jee Main Failed')
+
+
+
+
+obj = JeeMain(60,62,65)
+obj.jee_main_clear()
+
+
+Destructors:
+_____________
+Destructor is a special method and the name should be __del__
+Just before destroying an object Garbage Collector always calls destructor to perform clean up 
+activities (Resource deallocation activities like close database connection etc).
+Once destructor execution completed then Garbage Collector automatically destroys that object.
+Note: The job of destructor is not to destroy object and it is just to perform clean up activities.
+Example:
+1) import time 
+2) class Test: 
+3) def __init__(self): 
+4) print("Object Initialization...") 
+5) def __del__(self): 
+6) print("Fulfilling Last Wish and performing clean up activities...") 
+7) 
+8) t1=Test() 
+9) t1=None 
+10) time.sleep(5) 
+11) print("End of application") 
+Output
+Object Initialization...
+Fulfilling Last Wish and performing clean up activities...
+End of application
+
+
+Godtreenetraisbest@108**

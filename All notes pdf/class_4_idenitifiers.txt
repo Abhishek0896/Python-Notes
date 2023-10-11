@@ -1,0 +1,173 @@
+identifiers:-
+-------------
+
+variable name, function name,module name and class name
+
+var_name = data
+
+def func_name
+
+Rules to define identifiers:-
+---------------
+
+1. The only allowed char in python are
+
+>upper case and lower case
+>0 to 9 digit
+>under score (_)
+
+2.Identifiers should not start with digit.
+
+3.Identifiers are case sensitive, because python also case sensitive
+
+4. we can not use any keyword name as a idenitifiers.
+
+pep8 :-python enhancement proposal 8
+
+Idustrial Rules:-
+
+Casing 
+
+Camel casing:- Folder Name, Class Name, Module Name
+
+used :- upper case, lower case, digit
+
+Every word first char should be upper and rest are lower, here we can not use any special char
+
+
+Snake casing:- file name,variable name, function name, module
+
+used :- only lower, _ and digit
+Every word each char should lower and word separte another with the help of under score(_)
+
+
+State Bank Of India
+
+StateBankOfIndia100927 -- folder,class, module
+
+state_bank_of_india_100927
+
+_state_bank_of_india_100927
+
+_100927_bank_of_india
+
+
+then:-
+
+var = data ----- narmal variable
+_var :- protected variable
+__var :- private variable
+
+
+
+
+def cal():
+	_a = 10
+	__b = 20
+
+
+	Identifiers:-
+-----------
+
+A name in python program is called idenitifier.
+It can be Variable Name, Function Name(File), Module Name and Class Name(Folder).
+
+
+what is variable?
+Variable is hold/store our single data.
+
+Example :-
+
+name = 'Somnath'
+a = 10
+dict = 'Khordha'
+
+
+Rules to define identifiers in python:-
+--------------------------------------
+
+1.The only allowed charcters in python are:-
+	
+	> Alphabet symbols(upper and lower case)
+	> Digit (0-9)
+	> Underscore symbol(_)
+
+
+2. Identifiers should not start with digits.
+
+3.Idenitifiers are case sensitive, Because python language is case sensitive.
+
+>>> result = 90
+>>> Result
+Traceback (most recent call last):
+  File "<pyshell#12>", line 1, in <module>
+    Result
+NameError: name 'Result' is not defined
+>>> result
+90
+>>> RESULT  = 123
+>>> RESULt
+Traceback (most recent call last):
+  File "<pyshell#15>", line 1, in <module>
+    RESULt
+NameError: name 'RESULt' is not defined
+
+
+Industry Rules:-
+---------------
+
+Casing
+
+In python there are 2 types of casing is possiable.
+---------------------------------------------------------
+
+1.Camel Casing:-
+
+Allowed Char:- Upper case, Lower Case and Digit
+
+Every word first char should be in uppre and rest are lower.
+
+Use Area:- Module and Class Name and Folder Name
+
+Ex:-     state bank of india
+
+Camel:-
+StateBankOfIndia
+
+Ex_2 :- state bank of india 100927
+
+ex:- StateBankOfIndia100927
+------------------------------------------------------------------
+
+2.Snake Casing:-
+
+Allowed Char :- lower case, under score and digit
+
+Every thing is in lower and we will seprate the word help of underscore.
+
+Use Area:- Module and variable Name and function Name
+
+Ex:-     state bank of india
+
+state_bank_of_india
+
+Ex_2 :- state bank of india 100927
+
+ex:- state_bank_of_india_100927
+
+
+
+What is PEP8?
+	Python Enhancement Proposal -8
+
+way of python writing style is know as PEP8.
+
+
+
+When we will underscore as a first char?
+
+name = 'Somnath' ---- normal variable
+
+_name = 'Somnath' ----- procted variable
+
+__name = 'Somnath' -----private variable

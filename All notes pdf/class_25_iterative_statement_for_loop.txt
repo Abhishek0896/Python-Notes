@@ -1,0 +1,100 @@
+. Iterative Statement :- 
+---------------------------------------
+if we want to execute a group of statement in multiple times then we should go for looping statement
+
+There are two types of loop in python
+
+1.for
+2.while
+
+
+for:- If we want to excute some action for every element present in some sequence like container[list,tuple,set,fzset,string etc] then we should go for for loops.
+
+
+syntax:
+
+for var in container:
+	statement
+
+
+ex:-
+
+for i in data:
+    result = i+100
+    print(result)
+
+where sequence can be string or any collection.
+Body will be executed for every element present in the sequence.
+
+ex:-
+li = [10,20,30,40,50]
+
+for i in li:
+    result = i*2
+    print(result)
+
+
+Range Data Type:- It's sequence of number
+
+for i in range(1,11):
+    print(i)
+
+ print 1 to 10
+
+
+for i in range(1,11,2):
+    print(i)
+
+for i in range(2,11,2):
+    print(i)
+
+-----------------------------------Running Notes--------------
+
+
+'''Iterative Statement'''
+#for
+#while
+
+'''
+syntax:-
+
+for var in collection_name:
+    statemnt
+
+'''
+li = [67,89.90,65,8+9j,'karnataka',[89,90],(78,76)]
+
+# for var in li:
+#     print(var)
+
+#li,tup,set,fz,bytes,bytearray,dict,str,range()
+
+s = 'Karnataka'
+
+for var in s:
+    print(var)
+
+
+#dict
+
+di = {'Name':'A','Age':67}
+# print(di.items())
+
+for var1,var2 in di.items():
+    print(var1,var2)
+
+
+#range():- generate the sequence of number
+
+'''
+start ----  number 67
+
+end ------ number+1 89+1 = 90
+
+step -------- 2
+
+range(start,end+1,step)
+'''
+
+for i in range(67,76,2):
+    print(i)

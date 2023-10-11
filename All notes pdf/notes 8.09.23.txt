@@ -1,0 +1,122 @@
+# # def fib(n):
+# #     a=0
+# #     b=1
+# #     while b<n:
+# #         print(b)
+# #         a=a+b
+# #         a,b=b,a+b
+# # print(fib(100))
+#
+# # a=10
+# # b=20
+# # print(a!=b)
+#
+# # x=2
+# # x=x+10
+# # print(x)
+#
+# # y=10
+# # y+=10
+# # print(y)
+#
+# # a=20
+# # b=10
+# # print(b is not a)
+#
+# # a=(10,20,30,40)
+# # if 40 in a:
+# #     print(True)
+# # def data(**kwargs):
+# #     for k,v in kwargs.items():
+# #         print (k,v)
+# #
+# # data(name="rocky",salary=40000,org=['citrix','harman','honeywell'])
+#
+# colors =['red','green','blue','yellow','black']
+# for color in colors:
+#     print(color)
+#     for i in colors:
+#         print(i)
+
+# def fib(n):
+#     a=0
+#     b=1
+#     while b<n:
+#         print(b)
+#         a=a+b
+#         a,b=b,a+b
+# print(fib(100))
+
+
+#filter and map reduce
+
+# def even(i):
+#     if i%2==0:
+#         return True
+
+# from functools import *
+#
+# tu = (45,67,48,21,23,2,4,26,25,29,22)
+#
+# var = reduce(lambda a,b:a*b,tu)
+# print(var)
+
+#decorator
+
+# def decore(add):
+#     def inner(a,b):
+#         mul = a*b
+#         return mul,add(a,b)
+#     return inner
+# @decore
+# def add(a,b):
+#     sum = a+b
+#     return sum
+#
+# print(add(10,20))
+
+
+# list :- even :- pallidrom/sum
+li = [10,20,32,45,67,89,90,32,56,55]
+
+
+def decore1(even_list):
+
+    def odd(li):
+        odd_li = []
+        for i in li:
+            if i%2!=0:
+                odd_li.append(('odd',i))
+        print(odd_li)
+        print(even_list(li))
+    return odd
+def decore(even_list):
+    def inner(li):
+        sum = 0
+        for i in li:
+            sum = sum+i
+        print(sum)
+        print(even_list(li))
+    return inner
+@decore
+@decore1
+def even_list(li):
+    even_li = []
+    for i in li:
+        if i%2==0:
+            even_li.append(('Even',i))
+    return even_li
+
+
+print(even_list(li))
+
+
+
+#arg - function pass
+# on original function above use @ symbol for decore calling
+# in decore in inner function call actual function
+
+
+
+
+#write fucntion number is prime or not, and write the decore check the number is pallidrom or not.

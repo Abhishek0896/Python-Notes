@@ -1,0 +1,39 @@
+bytes:- It's a immutable datatype, we can create a bytes using help of type casting, but condition here is it's only accept 0 to 255 values.
+
+>>> li = [78,56,123,255,78]
+>>> by = bytes(li)
+>>> type(by)
+<class 'bytes'>
+
+Note:- If a put above 255, it's showing ValueError.
+
+>>> li = [78,56,123,256,78]
+>>> by = bytes(li)
+Traceback (most recent call last):
+  File "<pyshell#23>", line 1, in <module>
+    by = bytes(li)
+ValueError: bytes must be in range(0, 256)
+
+
+bytearryy:- It's a mutable datatype, we can create a bytearray using help of type casting, but condition here is it's only accept 0 to 255 values.
+
+>>> li = [78,56,123,255,78]
+>>> byts = bytearray(li)
+>>> byts
+bytearray(b'N8{\xffN')
+>>> type(byts)
+<class 'bytearray'>
+
+
+Note:- If a put above 255, it's showing ValueError.
+
+>>> li = [78,56,123,256,78]
+>>> byts = bytearray(li)
+Traceback (most recent call last):
+  File "<pyshell#29>", line 1, in <module>
+    byts = bytearray(li)
+ValueError: byte must be in range(0, 256)
+>>> 
+
+
+range:- Now we hold this one, we will continuw after flow control(for loop).

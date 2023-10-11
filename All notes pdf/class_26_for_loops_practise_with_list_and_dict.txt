@@ -1,0 +1,65 @@
+#dict -- for
+
+# di = {'Name':'Lipu','Age':26,'Salary':78000}
+#
+# # for var1,var2 in dictionary.items
+#
+# for key,value in di.items():
+#     print(key, value)
+
+#--------------------------------------------------------
+# List inside a list
+# li =[
+#         [2,4,6,10,12],
+#         [3,6,9,12,15],
+#         [4,8,12,16,20]
+#     ]
+#
+# #Nested for in Nested list
+#
+# for var in li:
+#     for var2 in var:
+#         print(var2)
+
+
+
+# li = [
+#     (78,90,56),
+#     (90,92,95),
+#     (67,89,45),
+#     (),()
+# ]
+#
+# for var in li:#(90,92,95)
+#     for var2 in var:#95
+#         print(var2)
+#
+
+
+#2.list inside a dictionary
+# li = [
+#     {'Name':'Ruchira','Age':27,'Salary':92000},
+#     {'Name':'Umesh','Age':29,'Salary':98000},
+#     {'Name':'Gupta','Age':26,'Salary':140000}
+# ]
+#
+# for jaga in li: #i={'Name':'Gupta','Age':26,'Salary':140000}
+#     for k,v in jaga.items():
+#         print(k,v)
+
+##dictionary inside a dictionary
+li = {
+        1:{'Name':'Ruchira','Age':27,'Salary':92000},
+        2:{'Name':'Umesh','Age':29,'Salary':98000},
+       3: {'Name':'Gupta','Age':26,'Salary':140000}
+
+}
+
+for k,v in li.items():
+    for k1,v1 in v.items():
+        print(k1,v1)
+
+
+# List inside a list
+#list inside a dictionary
+#dictionary inside a dictionary

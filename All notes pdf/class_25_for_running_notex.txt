@@ -1,0 +1,69 @@
+'''
+Collectional Interation---- for loop
+Conditional Interation---- while loop
+
+'''
+# for :- if we want iterate a collection, means if you want work with element in a collection. then you can go
+#         for for loop.not
+
+# synatx:-
+'''
+for var in collection_name:
+    statement
+'''
+
+# li = [90,89,76,54,901]
+#
+# for var in li:
+#     print(var)
+
+# li = [8900,7800,6700,5600,4500,3400,2300,1200]
+#
+# for var in li:
+#     print(var+500)
+
+#Checl even or odd
+# li = [78,90,51,31,45,64,90,87,65]
+# even_li = []
+#
+# for var in li:
+#     if var%2==0:
+#         print(var,True)
+#     else:
+#         print(var,False)
+
+#
+# li = [78,90,51,31,45,64,90,87,65]
+# even_li = []
+# odd_li = []
+#
+# for var in li:
+#     if var%2==0:
+#         even_li.append(var)
+#     else:
+#         odd_li.append(var)
+#
+# print(even_li)
+# print(odd_li)
+
+
+#write loop, check the number is pallibdrom or not then add is a set
+
+# li = [909,8798,454,788,676,123,124,121]
+#
+# pallidrom_set = set()
+#
+# for var in li:
+#     if str(var) == str(var)[::-1]:
+#         pallidrom_set.add(var)
+# print(pallidrom_set)
+
+
+#range
+
+# range(9) # 0,8
+# range(1,9)#1,8
+
+# for var in range(1,51):
+#     if var%2 ==0:
+#         print(var)

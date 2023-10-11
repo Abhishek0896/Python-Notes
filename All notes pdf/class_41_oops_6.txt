@@ -1,0 +1,137 @@
+Inheritance:-
+============
+
+
+Inheritance is the capability of one class to derive or inherit the properties from another class. The class that derives properties is called the derived class or child class and the class from which the properties are being derived is called the base class or parent class. The benefits of inheritance are:
+
+It represents real-world relationships well.
+It provides the reusability of a code. We don’t have to write the same code again and again. Also, it allows us to add more features to a class without modifying it.
+It is transitive in nature, which means that if class B inherits from another class A, then all the subclasses of B would automatically inherit from class A.
+
+Types of Inheritance – 
+=====================
+
+Single Inheritance:
+==================
+Single-level inheritance enables a derived class to inherit characteristics from a single-parent class.
+
+Multilevel Inheritance:
+=======================
+Multi-level inheritance enables a derived class to inherit properties from an immediate parent class which in turn inherits properties from his parent class.
+
+Hierarchical Inheritance:
+=========================
+Hierarchical level inheritance enables more than one derived class to inherit properties from a parent class.
+
+Multiple Inheritance:
+====================
+Multiple level inheritance enables one derived class to inherit properties from more than one base class.
+
+
+# parent class
+class Person(object):
+ 
+    # __init__ is known as the constructor
+    def __init__(self, name, idnumber):
+        self.name = name
+        self.idnumber = idnumber
+ 
+    def display(self):
+        print(self.name)
+        print(self.idnumber)
+         
+    def details(self):
+        print("My name is {}".format(self.name))
+        print("IdNumber: {}".format(self.idnumber))
+     
+# child class
+class Employee(Person):
+    def __init__(self, name, idnumber, salary, post):
+        self.salary = salary
+        self.post = post
+ 
+        # invoking the __init__ of the parent class
+        Person.__init__(self, name, idnumber)
+         
+    def details(self):
+        print("My name is {}".format(self.name))
+        print("IdNumber: {}".format(self.idnumber))
+        print("Post: {}".format(self.post))
+ 
+ 
+# creation of an object variable or an instance
+a = Employee('Rahul', 886012, 200000, "Intern")
+ 
+# calling a function of the class Person using
+# its instance
+a.display()
+a.details()
+
+
+while loop
+lambda function
+list comprehension
+Decorater
+memory management
+
+undamental Python
+Identifiers
+Data type and structure
+Opeartor
+Input and Output
+Flow control -------------- while 3
+Function -------------------------------lambda 4 :- list com -5
+Decorater and generator ---------------------6 
+Module
+Packages -----------------2
+File ---------------------1  ------------------------- seek and tail(rem) -7
+Opps
+memory managemnt ------------------------------6
+shallow copy and deep copy -----------------------------------8(rem)
+
+test program----------------------------------------------------9
+
+
+Exception(selenium)
+Db-Connections(pytest)
+
+
+Date:-	Subject
+26th Dec	Doubt Clear
+27th Dec	Doubt Clear
+28th Dec	Mongo DB
+29th Dec	Mongo DB
+30th Dec	Mongo DB
+31st Dec	GIT
+	
+1st Jan	Chuti
+2nd Jan	Selenium
+3rd Jan	Selenium
+4th Jan	Selenium
+5th Jan	Selenium
+6th Jan	Selenium
+7th Jan	Selenium
+8th Jan	Selenium
+9th Jan	Selenium
+10th Jan	Selenium
+11th Jan	Selenium
+12th Jan	Selenium
+13th Jan	Selenium
+14th Jan	Selenium
+15th Jan	Pytest and Unittest
+16th Jan	Pytest and Unittest
+17th Jan	Pytest and Unittest
+18th Jan	Pytest and Unittest
+19th Jan	Pytest and Unittest
+20th Jan	Pytest and Unittest
+21st Jan	Pytest and Unittest
+22nd Jan	Pytest and Unittest
+23rd Jan	API and Rest API
+24th Jan	API and Rest API
+25th Jan	API and Rest API
+26th Jan	Post Man
+27th Jan	Docker
+28th Jan	AWS(EC2)
+29th Jan	Project
+30th Jan	Project
+31st Jan	Project

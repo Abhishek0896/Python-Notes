@@ -1,0 +1,51 @@
+#write a if and elif concept from own side.
+#write a program , (and, or) using in if condition
+# Write a pallindrom number and compair , without using str
+
+'''
+if condition:
+    statement
+
+elif condition:
+    statement
+elif condition:
+    statement
+    
+else:
+    statement
+
+'''
+
+# percentage = int(input('Enter a number:-'))
+#
+# if percentage >=60:
+#     print('First Division')
+# elif percentage >=45:
+#     print('Second Division')
+# elif percentage >=35:
+#     print('Third Division')
+# else:
+#     print('Fail')
+
+
+# a = int(input('Enter a number:-'))
+# if a%2 ==0 or a%3==0:
+#     print('Div in 2 and 3')
+
+# Ternarry Operator:-
+'''
+Synatx:-
+
+var = statement if condition else statement 
+'''
+# a = int(input('Enter a number'))
+# var = True if a%2==0 else False
+# print(var)
+
+# print number is pallindrom or not in ternarry operator using str
+# a = int(input('Enter a number'))
+# var = 'Pallindrom' if str(a) == str(a)[::-1] else 'Not a Pallindrom'
+# print(var)
+
+# 1. Write a Python program to find those numbers which are divisible by 7 and multiples of 5, between 1500 and 2700 (both included).
+#2

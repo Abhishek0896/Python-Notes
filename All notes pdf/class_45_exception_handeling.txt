@@ -1,0 +1,68 @@
+# a  = eval(input('Enter a number:-'))
+# b = eval(input('Enter your second number:-'))
+#
+# try:
+#     div = a/b
+#     print(div)
+# except ZeroDivisionError:
+#     print('Please do not divided by zero')
+# except TypeError:
+#     print('Please divied int with int')
+
+# li = [10,20,50,80,'qwert']
+#
+# try:
+#     sum = 0
+#     for i in li:
+#         sum = sum+i
+#     print('original:-',sum)
+#
+# except TypeError:
+#     sum = 0
+#     for i in li:
+#         if type(i)==int:
+#             sum = sum + i
+#     print('after exception handel:-',sum)
+
+
+# li = [[78,90,67,56,34],[676,99,76,45,23],[89,34],[90,81,'qwert',901,67]]
+#
+# try:
+#     sum = 0
+#     for i in li:
+#         sum = sum+i[2]
+# except (IndexError,TypeError):
+#     sum = 0
+#     for i in li:
+#         if len(i)>=3 and type(i[2])==int:
+#             sum = sum + i[2]
+#             continue
+#     print(sum)
+
+
+li = [[89,89,67,56,34],[676,99,76,45,23],[89,34],[90,81,89,901,67]]
+
+
+#index,type
+
+try:
+    sum = 0
+    for i in li:
+        sum = sum + i[2]
+    print(sum)
+
+except (IndexError,TypeError):
+    sum = 0
+    for i in li:
+        if len(i)>=3 and type(i[2])==int:
+            sum = sum+i[2]
+    print('after exp handeling:-',sum)
+except Exception as msg:
+    print('Please prove a proper data:-',msg)
+
+finally:
+    sum = 0
+    for i in li:
+        sum = sum+i[1]
+    print(sum)
+

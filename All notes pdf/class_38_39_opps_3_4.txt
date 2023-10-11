@@ -1,0 +1,624 @@
+How to access static variables:
+==============================
+
+1. inside constructor: by using either self or classname
+2. inside instance method: by using either self or classname
+3. inside class method: by using either cls variable or classname
+4. inside static method: by using classname
+5. From outside of class: by using either object reference or classnmae
+1) class Test: 
+2) a=10 
+3) def __init__(self): 
+4) print(self.a) 
+5) print(Test.a) 
+6) def m1(self): 
+7) print(self.a) 
+8) print(Test.a) 
+9) @classmethod 
+10) def m2(cls): 
+11) print(cls.a) 
+12) print(Test.a) 
+13) @staticmethod 
+14) def m3(): 
+15) print(Test.a) 
+16) t=Test() 
+17) print(Test.a) 
+18) print(t.a) 
+19) t.m1() 
+20) t.m2() 
+21) t.m3() 
+
+Where we can modify the value of static variable:
+Anywhere either with in the class or outside of class we can modify by using classname.
+
+But inside class method, by using cls variable.
+Example:
+1) class Test: 
+2) a=777 
+3) @classmethod 
+4) def m1(cls): 
+5) cls.a=888 
+6) @staticmethod 
+7) def m2(): 
+8) Test.a=999 
+9) print(Test.a) 
+10) Test.m1() 
+11) print(Test.a) 
+12) Test.m2() 
+13) print(Test.a) 
+Output
+777
+888
+999
+ 
+If we change the value of static variable by using either self 
+or object reference variable:
+
+If we change the value of static variable by using either self or object reference variable, then the value of static variable won't be changed,just a new instance variable with that name will be added to that particular object.
+
+Example 1:
+1) class Test: 
+2) a=10 
+3) def m1(self): 
+4) self.a=888 
+5) t1=Test() 
+6) t1.m1() 
+7) print(Test.a) 
+8) print(t1.a) 
+Output
+10
+888
+
+Example:
+1) class Test: 
+2) x=10 
+3) def __init__(self): 
+4) self.y=20 
+5) 
+6) t1=Test() 
+7) t2=Test() 
+8) print('t1:',t1.x,t1.y) 
+9) print('t2:',t2.x,t2.y) 
+10) t1.x=888 
+11) t1.y=999 
+12) print('t1:',t1.x,t1.y) 
+13) print('t2:',t2.x,t2.y) 
+Output
+t1: 10 20
+t2: 10 20
+t1: 888 999
+t2: 10 20
+ 
+
+Example:
+1) class Test: 
+2) a=10 
+3) def __init__(self): 
+4) self.b=20 
+5) t1=Test() 
+6) t2=Test() 
+7) Test.a=888 
+8) t1.b=999 
+9) print(t1.a,t1.b) 
+10) print(t2.a,t2.b) 
+Output
+888 999
+888 20
+------------------------------------
+1) class Test: 
+2) a=10 
+3) def __init__(self): 
+4) self.b=20 
+5) def m1(self): 
+6) self.a=888 
+7) self.b=999 
+8) 
+9) t1=Test() 
+10) t2=Test() 
+11) t1.m1() 
+12) print(t1.a,t1.b) 
+13) print(t2.a,t2.b) 
+Output
+888 999
+10 20
+
+Example:
+1) class Test: 
+2) a=10 
+3) def __init__(self): 
+4) self.b=20 
+5) @classmethod 
+6) def m1(cls): 
+7) cls.a=888 
+8) cls.b=999 
+9) 
+10) t1=Test() 
+11) t2=Test() 
+12) t1.m1() 
+13) print(t1.a,t1.b) 
+14) print(t2.a,t2.b) 
+15) print(Test.a,Test.b) 
+Output
+888 20
+888 20
+888 999
+
+How to delete static variables of a class:
+===========================================
+
+We can delete static variables from anywhere by using the following syntax
+del classname.variablenameBut inside classmethod we can also use cls variable
+del cls.variablename
+
+1) class Test: 
+2) a=10 
+3) @classmethod 
+4) def m1(cls): 
+5) del cls.a 
+6) Test.m1() 
+7) print(Test.__dict__) 
+
+Example:
+1) class Test: 
+2) a=10 
+3) def __init__(self): 
+4) Test.b=20 
+5) del Test.a 
+6) def m1(self): 
+7) Test.c=30 
+8) del Test.b 
+9) @classmethod 
+10) def m2(cls): 
+11) cls.d=40 
+12) del Test.c 
+13) @staticmethod 
+14) def m3(): 
+15) Test.e=50 
+16) del Test.d 
+17) print(Test.__dict__) 
+18) t=Test() 
+19) print(Test.__dict__) 
+20) t.m1() 
+21) print(Test.__dict__) 
+22) Test.m2() 
+23) print(Test.__dict__) 
+24) Test.m3() 
+25) print(Test.__dict__) 
+26) Test.f=60 
+27) print(Test.__dict__) 
+28) del Test.e 
+29) print(Test.__dict__) 
+****
+
+Note: By using object reference variable/self we can read static variables, but we cannot modify or delete.
+
+If we are trying to modify, then a new instance variable will be added to that particular object.
+
+t1.a = 70
+If we are trying to delete then we will get error.
+
+Example:
+1) class Test: 
+2) a=10 
+3) 
+4) t1=Test() 
+5) del t1.a ===>AttributeError: a 
+We can modify or delete static variables only by using classname or cls variable.
+1) import sys 
+2) class Customer: 
+3) ''''' Customer class with bank operations.. ''' 
+4) bankname='BANK' 
+5) def __init__(self,name,balance=0.0): 
+6) self.name=name 
+7) self.balance=balance 
+8) def deposit(self,amt): 
+9) self.balance=self.balance+amt 
+10) print('Balance after deposit:',self.balance) 
+11) def withdraw(self,amt): 
+12) if amt>self.balance: 
+13) print('Insufficient Funds..cannot perform this operation') 
+14) sys.exit() 
+15) self.balance=self.balance-amt 
+16) print('Balance after withdraw:',self.balance) 
+17) 
+18) print('Welcome to',Customer.bankname) 
+19) name=input('Enter Your Name:') 
+20) c=Customer(name) 
+21) while True: 
+22) print('d-Deposit \nw-Withdraw \ne-exit') 
+23) option=input('Choose your option:') 
+24) if option=='d' or option=='D': 
+25) amt=float(input('Enter amount:')) 
+26) c.deposit(amt) 
+27) elif option=='w' or option=='W': 
+28) amt=float(input('Enter amount:')) 
+29) c.withdraw(amt) 
+30) elif option=='e' or option=='E': 
+31) print('Thanks for Banking') 
+32) sys.exit() 
+33) else: 
+34) print('Invalid option..Plz choose valid option') 
+
+output:
+Welcome to BANK
+Enter Your Name:Krishna
+d-Deposit
+w-Withdraw
+e-exit
+Choose your option:d
+Enter amount:10000
+Balance after deposit: 10000.0
+d-Deposit
+w-Withdraw
+e-exit
+Choose your option:d
+Enter amount:20000
+Balance after deposit: 30000.0
+d-Deposit
+w-Withdraw
+e-exit
+Choose your option:w
+Enter amount:2000
+Balance after withdraw: 28000.0
+d-Deposit
+w-Withdraw
+e-exit
+Choose your option:r
+Invalid option..Plz choose valid option
+d-Deposit
+w-Withdraw
+e-exit
+Choose your option:e
+Thanks for Banking
+ 
+
+Local variables:
+===============
+Sometimes to meet temporary requirements of programmer,we can declare variables inside a 
+method directly,such type of variables are called local variable or temporary variables.
+Local variables will be created at the time of method execution and destroyed once method 
+completes.
+Local variables of a method cannot be accessed from outside of method.
+Example:
+1) class Test: 
+2) def m1(self): 
+3) a=1000 
+4) print(a) 
+5) def m2(self): 
+6) b=2000 
+7) print(b) 
+8) t=Test() 
+9) t.m1() 
+10) t.m2() 
+Output
+1000
+2000
+Example 2: 
+1) class Test: 
+2) def m1(self): 
+3) a=1000 
+4) print(a) 
+5) def m2(self): 
+6) b=2000 
+7) print(a) #NameError: name 'a' is not defined 
+8) print(b) 
+9) t=Test() 
+10) t.m1() 
+11) t.m2() 
+ 
+
+Inside Python class 3 types of methods are allowed
+===================================================
+
+1. Instance Methods
+2. Class Methods
+3. Static Methods
+ 1. Instance Methods:
+Inside method implementation if we are using instance variables then such type of methods are 
+called instance methods. 
+Inside instance method declaration,we have to pass self variable.
+ def m1(self):
+By using self variable inside method we can able to access instance variables.
+Within the class we can call instance method by using self variable and from outside of the class 
+we can call by using object reference.
+1) class Student: 
+2) def __init__(self,name,marks): 
+3) self.name=name 
+4) self.marks=marks 
+5) def display(self): 
+6) print('Hi',self.name)
+7) print('Your Marks are:',self.marks) 
+8) def grade(self): 
+9) if self.marks>=60: 
+10) print('You got First Grade') 
+11) elif self.marks>=50: 
+12) print('Yout got Second Grade') 
+13) elif self.marks>=35: 
+14) print('You got Third Grade') 
+15) else: 
+16) print('You are Failed') 
+17) n=int(input('Enter number of students:')) 
+18) for i in range(n): 
+19) name=input('Enter Name:') 
+20) marks=int(input('Enter Marks:')) 
+21) s= Student(name,marks) 
+22) s.display() 
+23) s.grade() 
+24) print() 
+
+ouput:
+D:\classes>py test.py
+Enter number of students:2
+Enter Name:Krishna
+Enter Marks:90
+Hi Krishna
+Your Marks are: 90
+You got First Grade
+Enter Name:Ravi
+Enter Marks:12
+Hi Ravi
+Your Marks are: 12
+You are Failed
+
+
+Setter and Getter Methods:
+=========================
+
+We can set and get the values of instance variables by using getter and setter methods.
+Setter Method:
+setter methods can be used to set values to the instance variables. setter methods also known as 
+mutator methods.
+syntax:
+def setVariable(self,variable):
+ self.variable=variable
+Example:
+def setName(self,name):
+ self.name=name
+Getter Method:
+Getter methods can be used to get values of the instance variables. Getter methods also known as 
+accessor methods.
+syntax:
+def getVariable(self):
+ return self.variable
+ 
+Example:
+def getName(self):
+ return self.name
+ 
+
+Demo Program:
+1) class Student: 
+2) def setName(self,name): 
+3) self.name=name 
+4) 
+5) def getName(self): 
+6) return self.name 
+7) 
+8) def setMarks(self,marks): 
+9) self.marks=marks 
+10) 
+11) def getMarks(self): 
+12) return self.marks 
+13) 
+14) n=int(input('Enter number of students:')) 
+15) for i in range(n): 
+16) s=Student() 
+17) name=input('Enter Name:') 
+18) s.setName(name) 
+19) marks=int(input('Enter Marks:')) 
+20) s.setMarks(marks) 
+21) 
+22) print('Hi',s.getName()) 
+23) print('Your Marks are:',s.getMarks()) 
+24) print() 
+output:
+D:\python_classes>py test.py
+Enter number of students:2
+Enter Name:Krishna
+Enter Marks:100
+Hi Krishna
+Your Marks are: 100
+Enter Name:Ravi
+Enter Marks:80
+Hi Ravi
+Your Marks are: 80
+
+2. Class Methods:
+=================
+
+Inside method implementation if we are using only class variables (static variables), then such type of methods we should declare as class method.
+
+We can declare class method explicitly by using @classmethod decorator. 
+For class method we should provide cls variable at the time of declaration
+ 
+We can call classmethod by using classname or object reference variable.
+Demo Program:
+1) class Animal: 
+2) legs=4 
+3) @classmethod 
+4) def walk(cls,name): 
+5) print('{} walks with {} legs...'.format(name,cls.legs)) 
+6) Animal.walk('Dog') 
+7) Animal.walk('Cat') 
+Output
+D:\python_classes>py test.py
+Dog walks with 4 legs...
+Cat walks with 4 legs...
+Program to track the number of objects created for a class:
+1) class Test: 
+2) count=0 
+3) def __init__(self): 
+4) Test.count =Test.count+1 
+5) @classmethod 
+6) def noOfObjects(cls): 
+7) print('The number of objects created for test class:',cls.count)
+8) 
+9) t1=Test() 
+10) t2=Test() 
+11) Test.noOfObjects() 
+12) t3=Test() 
+13) t4=Test() 
+14) t5=Test() 
+15) Test.noOfObjects() 
+
+3. Static Methods:
+==================
+
+In general these methods are general utility methods.
+Inside these methods we won't use any instance or class variables.
+Here we won't provide self or cls arguments at the time of declaration.
+We can declare static method explicitly by using @staticmethod decorator
+We can access static methods by using classname or object reference
+1) class Math: 
+2) 
+3) @staticmethod 
+4) def add(x,y): 
+5) print('The Sum:',x+y) 
+6) 
+7) @staticmethod 
+8) def product(x,y): 
+9) print('The Product:',x*y) 
+10) 
+11) @staticmethod 
+12) def average(x,y): 
+13) print('The average:',(x+y)/2) 
+14) 
+15) Math.add(10,20) 
+16) Math.product(10,20) 
+17) Math.average(10,20) 
+Output
+The Sum: 30
+The Product: 200
+The average: 15.0
+Note: In general we can use only instance and static methods.Inside static method we can access 
+class level variables by using class name.
+class methods are most rarely used methods in python.
+Passing members of one class to another class:
+We can access members of one class inside another class.
+1) class Employee: 
+2) def __init__(self,eno,ename,esal): 
+3) self.eno=eno 
+4) self.ename=ename 
+5) self.esal=esal 
+6) def display(self): 
+7) print('Employee Number:',self.eno) 
+8) print('Employee Name:',self.ename) 
+9) print('Employee Salary:',self.esal) 
+10) class Test: 
+11) def modify(emp): 
+12) emp.esal=emp.esal+10000 
+13) emp.display() 
+14) e=Employee(100,'Krishna',10000) 
+15) Test.modify(e) 
+Output
+D:\python_classes>py test.py
+Employee Number: 100
+Employee Name: Krishna
+Employee Salary: 20000
+In the above application, Employee class members are available to Test class.
+Inner classes:
+Sometimes we can declare a class inside another class,such type of classes are called inner classes.
+Without existing one type of object if there is no chance of existing another type of object,then we 
+should go for inner classes.
+Example: Without existing Car object there is no chance of existing Engine object. Hence Engine 
+class should be part of Car class.
+class Car:
+ .....
+ class Engine:
+ ......
+Example: Without existing university object there is no chance of existing Department object
+class University:
+ .....
+ class Department:
+ ......
+eg3:
+Without existing Human there is no chance of existin Head. Hence Head should be part of Human.
+class Human:
+ class Head:
+Note: Without existing outer class object there is no chance of existing inner class object. Hence 
+inner class object is always associated with outer class object.
+Demo Program-1:
+1) class Outer: 
+2) def __init__(self): 
+3) print("outer class object creation") 
+4) class Inner: 
+5) def __init__(self): 
+6) print("inner class object creation") 
+7) def m1(self): 
+8) print("inner class method") 
+9) o=Outer() 
+10) i=o.Inner() 
+11) i.m1() 
+ 
+Output
+outer class object creation
+inner class object creation
+inner class method
+Note: The following are various possible syntaxes for calling inner class method
+1.
+o=Outer()
+i=o.Inner()
+i.m1()
+2. 
+i=Outer().Inner()
+i.m1()
+3. Outer().Inner().m1()
+Demo Program-2:
+1) class Person: 
+2) def __init__(self): 
+3) self.name='Krishna' 
+4) self.db=self.Dob() 
+5) def display(self): 
+6) print('Name:',self.name) 
+7) class Dob: 
+8) def __init__(self): 
+9) self.dd=10 
+10) self.mm=5 
+11) self.yy=1947 
+12) def display(self): 
+13) print('Dob={}/{}/{}'.format(self.dd,self.mm,self.yy)) 
+14) p=Person() 
+15) p.display() 
+16) x=p.db 
+17) x.display() 
+Output
+Name: Krishna
+Dob=10/5/1947
+Demo Program-3:
+Inside a class we can declare any number of inner classes.
+1) class Human: 
+2) 
+3) def __init__(self): 
+4) self.name = 'Sunny' 
+5) self.head = self.Head() 
+6) self.brain = self.Brain() 
+7) def display(self): 
+8) print("Hello..",self.name) 
+9) 
+10) class Head: 
+11) def talk(self): 
+12) print('Talking...') 
+13) 
+14) class Brain: 
+15) def think(self): 
+16) print('Thinking...') 
+17) 
+18) h=Human() 
+19) h.display() 
+20) h.head.talk() 
+21) h.brain.think() 
+Output
+Hello.. Sunny
+Talking...
+Thinking...
+Garbage Collection:
+In old languages like C++, programmer is responsible for both creation and destruction of 
+objects.Usually programmer taking very much care while creating object, but neglecting 
+destruction of useless objects. Because of his neglectance, total memory can be filled with useless 
+objects which creates memory problems and total application will be down with Out of memory 
+error.
+But in Python, We have some assistant which is always running in the background to destroy 
+useless objects.Because this assistant the chance of failing Python program with memory 
+problems is very less. This assistant is nothing but Garbage Collector.
+Hence the main objective of Garbage Collector is to destroy useless objects.
+If an object does not have any reference variable then that object eligible for Garbage Collection

@@ -1,0 +1,100 @@
+#write a if condition, check even or not
+
+# num = int(input('Enter a number:-'))
+
+# if num%2 != 0:
+#     print('odd')
+#
+#
+# num = int(input('Enter a number:-'))
+#
+# if num%2 == 0:
+#     print('even')
+
+#else:-
+
+'''
+if condtion:
+    statement
+else:
+    statement
+    
+
+'''
+
+# num = int(input('Enter a number:-'))
+#
+# if num%2 == 0:
+#     print('even')
+# else:
+#     print('odd')
+
+
+# and , or operator use in condition statement.
+
+#if your age is 25 to 4o then , play cricket.. if you not in this age play footbal
+
+# age = int(input('Enter your age:-'))
+#
+#
+# if age>=25 and age<=40:
+#     print('Play cricket')
+#
+# else:
+#     print('Play Football')
+
+#
+# age = int(input('Enter your age'))
+# style = input('Enter your style of batting')
+#
+# if age>=30 or style=='left hand':
+#     print('Cricket')
+# else:
+#     print('Football')
+
+#elif------else -- if
+
+'''
+if condition:
+    statement
+
+elif conditipn_2:
+    statement
+    
+elif condition_3:
+    statement
+
+
+'''
+
+# actor_name = input('Enter your fav actor:-')
+
+# if actor_name == 'OM Puri':
+#     print('Plz watch Agnipath')
+#
+# elif actor_name == 'Amresh Puni':
+#     print('Plz watch Mister India')
+#
+# elif actor_name == 'Nana Patekar':
+#     print('Plz watch Safaroosh')
+# else:
+#     print("don't watch other films")
+
+#Write a pallindrom number and compair
+# using str
+#without str
+
+number = int(input('Enter your number'))
+
+number = str(number)
+reverse_num = number[::-1]
+
+if number == reverse_num:
+    print('Pallindrom')
+else:
+    print('Not a Pallindrom')
+
+#write a if and elif concept from own side.
+#write a program , (and, or) using in if condition
+# Write a pallindrom number and compair , without using str
+

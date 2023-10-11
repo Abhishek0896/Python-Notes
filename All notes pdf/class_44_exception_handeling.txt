@@ -1,0 +1,168 @@
+
+                            Exception Handeling
+                            -------------------
+
+In any programming language there are 2 types of errors are possible.
+
+1.Syntax Errors
+2.Runtime Errors
+
+
+Syntax Errors:-
+--------------
+
+The errors which occurs because of invalid syntax are called syntax errors.
+
+ex:-
+
+x = 10
+if x == 10
+    print("Hello")
+
+  File "C:\Users\chand\PycharmProjects\testing_17_18_19_python\ExceptionHandeling\errors.py", line 4
+    if x == 10
+              ^
+SyntaxError: invalid syntax
+
+Note:- Programmer is responsible to correct these syntax errors.Once all syntax errors are corrected then only program execution will be started.
+
+
+Runtime Errors:-
+---------------
+
+we all are knows as Exceptions
+
+While executing the program if something goes wrong because of end user input or output programming logic or memory problems etc then we will get Runtime Errors.
+
+a = int(input("1st"))
+b = int(input("2nd"))
+print(a/b)
+# a= 10
+#b = 0
+
+ File "C:\Users\chand\PycharmProjects\testing_17_18_19_python\ExceptionHandeling\errors.py", line 10, in <module>
+    print(a/b)
+ZeroDivisionError: division by zero
+
+
+Note:- Exception Handeling concept applicable for runtime Errors but not for syntax errors.
+
+What is Exception:-
+-----------------
+
+An unwanted and unexcepted event that distrubs normal flow of program is called  Exception.
+ex:-
+
+ZeroDivisionError
+TypeError
+ValueError
+FileNotFoundError
+
+
+It is highly recommended to handeling Exceptions.The main objective of exception handeling grecful Termination of the program.
+
+Note:- Exception Handeling does not mean reparing exception.We have to define alternative way to continue rest of the program normally.
+
+Interviews:-(Q)
+
+1.What is Exception?
+2.What is the purpose of Exception handeling?
+3.What is the meaning of Exception Handeling?
+
+
+Default Exception Handing In python:-
+------------------------------------
+
+Every Exception in python is an object,For every exception type the corresponding classes are availaable.
+
+a = int(input("1st"))
+b = int(input("2nd"))
+print(a/b)
+# a= 10
+#b = 0
+
+ File "C:\Users\chand\PycharmProjects\testing_17_18_19_python\ExceptionHandeling\errors.py", line 10, in <module>
+    print(a/b)
+ZeroDivisionError: division by zero
+
+
+
+                           Python's Eception Hierachy
+                           ------------------------
+
+
+                                        BaseException
+
+Exception               SystenExit                 GeneratorExit              KeyboardInterrupt
+|
+|
+|
+|
+Attribute     Arihmetic       EOF         Name         Lookup      OS        Type         Value
+Error         Error           Error       Error        Error       Error     Error        Error
+
+              |                                        |           |
+              ZeroDivision                             Index       FileNotFound
+              Error                					   Error       Error
+              |										   |           |
+              FloatingPoint							   Key         Interrputed
+              Error                                    Error       Error
+              |													   |
+              Overflow                                             Permission
+              Error                                                Error
+              													   |
+              													   TimeOut
+              													   Error
+
+Every Exception in Python is a class.
+
+All exception classes are child classes of BaseException that is every exception class extends BaseExption either directly or indirectly.Hence BaseExption acts as root for Python Exception Hirechy.
+
+Most of the time being a programmer we have to concentrate Exception and its child classes.
+
+
+-----------
+
+Customized Exception Handeling By using try-except
+-------------------------------------------------
+
+It is highly recommended to handel exceptions.
+
+The code which may raise exception is called risky code and we have to take risky code inside try block.The corresponding handeling code we have to take inside except block.
+
+
+syntax:-
+
+try:
+	Risky code
+
+except NameOfException:
+	Handeliing code/Alternative Code
+
+
+without try-except
+------------------
+
+print("smnt-1")
+print(10/0)
+print("smnt-2")
+
+Output:-
+
+smnt-1
+Traceback (most recent call last):
+  File "C:\Users\chand\PycharmProjects\testing_17_18_19_python\ExceptionHandeling\errors.py", line 27, in <module>
+    print(10/0)
+ZeroDivisionError: division by zero
+--
+
+a  = eval(input('Enter a number:-'))
+b = eval(input('Enter your second number:-'))
+
+try:
+    div = a/b
+    print(div)
+except ZeroDivisionError:
+    print('Please do not divided by zero')
+except TypeError:
+    print('Please divied int with int')
